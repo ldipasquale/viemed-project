@@ -11,7 +11,10 @@ function Header({ title, userName, onSignOut }) {
       </div>
 
       {userName !== null && (
-        <div className="viemed__Header__User">
+        <div
+          className="viemed__Header__User"
+          data-testid="viemed__Header__User"
+        >
           {userName}
 
           <img

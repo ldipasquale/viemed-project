@@ -24,5 +24,11 @@ export default function useValue(initialValue, onSubmit) {
     return onSubmit(value)
   }
 
-  return [value, handleChangeValue, hasError, handleSubmit]
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      handleSubmit()
+    }
+  }
+
+  return [value, handleChangeValue, handleKeyPress, hasError, handleSubmit]
 }

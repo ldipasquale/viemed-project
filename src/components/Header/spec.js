@@ -1,39 +1,31 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render, cleanup } from 'react-testing-library'
+import 'jest-dom/extend-expect'
 
-import expect from 'expect'
-import { configure, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import Header from '.'
 
-import Home from '.'
+afterEach(cleanup)
 
-configure({ adapter: new Adapter() })
+const userSideTestId = 'viemed__Header__User'
 
-describe('Home Page', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<Home />, div)
+const title = 'Home'
+const userName = 'John'
+
+const requiredProps = {
+  title,
+}
+
+describe('Header', () => {
+  it('should prevent rendering user side if username is not passed', () => {
+    const { queryByTestId } = render(<Header {...requiredProps} />)
+
+    expect(queryByTestId(userSideTestId)).toBeNull()
   })
 
-  it('renders loading spinner at beginning', () => {
-    const app = mount(<Home />)
+  it('should render user side if username is passed', () => {
+    const { getByTestId } = render(<Header {...requiredProps} userName={userName} />)
 
-    const spinner = app.find('.marfeel__Spinner')
-
-    expect(spinner.length).toEqual(1)
-  })
-
-  it('renders posts and header after fetch data', async () => {
-    const app = mount(<Home />)
-    await app.instance().componentDidMount()
-    app.update()
-
-    const posts = app.find('.marfeel__Posts')
-    const header = app.find('.marfeel__Header')
-
-    expect(posts.length).toEqual(1)
-    expect(header.length).toEqual(1)
+    expect(getByTestId(userSideTestId)).toBeDefined()
   })
 })

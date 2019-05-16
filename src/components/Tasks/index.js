@@ -10,7 +10,10 @@ function Tasks({ items, onCreateItem, onRemoveItem, onUpdateItem }) {
   return (
     <div className="viemed__Tasks">
       {items.length === 0 ? (
-        <div className="viemed__Tasks__EmptyMessage">
+        <div
+          className="viemed__Tasks__EmptyMessage"
+          data-testid="viemed__Tasks__EmptyMessage"
+        >
           Hey, you don’t have any task created. Do you wanna start by creating one?
         </div>
       ) : items.map(({ id, name, isDone }) => (

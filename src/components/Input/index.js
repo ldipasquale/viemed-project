@@ -7,7 +7,7 @@ import useValue from './useValue'
 import './styles.sass'
 
 function Input({ placeholder, onSubmit, className, size }) {
-  const [value, handleChangeValue, hasError, handleSubmit] = useValue('', onSubmit)
+  const [value, handleChangeValue, handleKeyPress, hasError, handleSubmit] = useValue('', onSubmit)
 
   return (
     <div
@@ -24,11 +24,14 @@ function Input({ placeholder, onSubmit, className, size }) {
         placeholder={placeholder}
         value={value}
         onChange={handleChangeValue}
+        onKeyPress={handleKeyPress}
+        data-testid="viemed__Input__Control"
       />
 
       <div
         className="viemed__Input__Button"
         onClick={handleSubmit}
+        data-testid="viemed__Input__Button"
       />
     </div>
   )

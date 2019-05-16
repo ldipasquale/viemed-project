@@ -36,6 +36,7 @@ class TasksItem extends React.PureComponent {
           'viemed__Tasks__Item--selected': isDone,
         })}
         onClick={this.handleUpdate}
+        data-testid="viemed__Tasks__Item"
       >
         <div className="viemed__Tasks__Item__Icon" />
         <div className="viemed__Tasks__Item__Name">{name}</div>
