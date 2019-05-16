@@ -1,0 +1,40 @@
+@import "~stylesheets/variables/index.sass"
+
+.viemed
+  &__Input
+    border-bottom: 2px solid $colorBlue
+    display: inline-flex
+    justify-content: space-between
+    align-items: center
+
+    &--error
+      border-bottom-color: $colorRed
+
+    &__Control
+      padding: $spacingStandard 0
+      font-size: $fontSizeLarge
+      font-weight: 300
+      min-width: 320px
+
+      &::placeholder
+        color: $colorGray
+
+    &__Button
+      width: $spacingXLarge
+      height: $spacingXLarge
+      background: $colorBlue
+      border-radius: 50%
+      margin: 0 $spacingSmall
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      cursor: pointer
+
+      &:after
+        content: ''
+        background: url('/public/arrow.png') no-repeat
+        background-size: contain
+        position: absolute
+        width: 10px
+        height: 8px
