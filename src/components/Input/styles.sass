@@ -12,9 +12,6 @@
 
     &__Control
       padding: $spacingStandard 0
-      font-size: $fontSizeLarge
-      font-weight: 300
-      min-width: 320px
 
       &::placeholder
         color: $colorGray
@@ -38,3 +35,11 @@
         position: absolute
         width: 10px
         height: 8px
+
+    &--size-small &__Button
+      width: $spacingLarge
+      height: $spacingLarge
+
+      &:after
+        width: 8px
+        height: 6px

@@ -7,10 +7,7 @@ function Header({ title, userName, onSignOut }) {
   return (
     <div className="viemed__Header">
       <div>
-        <span className="viemed__Header__Title">Viemed Healthcare</span>
-        {' '}
-—
-        {title}
+        <span className="viemed__Header__Title">Viemed Healthcare</span> - {title}
       </div>
 
       {userName !== null && (

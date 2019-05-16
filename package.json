@@ -1,10 +1,11 @@
 {
-  "name": "drixit-test",
+  "name": "viemed-test",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot --history-api-fallback",
     "build": "webpack",
+    "test": "jest",
     "lint": "eslint src/.",
     "lint:fix": "eslint src/. --fix"
   },
@@ -20,6 +21,8 @@
     "babel-loader": "^8.0.0-beta",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-webpack": "^0.11.0",
@@ -30,6 +33,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -39,11 +43,15 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-loader-spinner": "^2.3.0",
-    "recharts": "^1.5.0"
+    "react-loader-spinner": "^2.3.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^.+\\.(css|sass)$": "identity-obj-proxy"
+    }
   }
 }

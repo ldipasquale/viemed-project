@@ -1,0 +1,93 @@
+@import "~stylesheets/variables/index.sass"
+
+$iconBorderWidth: 1px
+$iconSize: $spacingMedium + $iconBorderWidth * 2
+
+.viemed
+  &__Tasks
+    &__EmptyMessage
+      font-size: $fontSizeLarge
+      line-height: $spacingXLarge
+      margin-bottom: $spacingLarge
+
+    &__Item,
+    &__AddItem__Control input
+      font-family: $displayFontFamilyStandard
+      letter-spacing: 0.2px
+
+    &__Item
+      border-radius: $spacingXSmall
+      padding: $spacingSmall $spacingStandard
+      margin-bottom: $spacingStandard
+      display: flex
+      align-items: center
+
+      &:hover
+        background-color: $colorLightGray
+
+      &__Icon
+        width: $iconSize
+        height: $iconSize
+        border-radius: 50%
+        background: #fff
+        border: $iconBorderWidth solid $colorGray
+        box-shadow: $boxShadow
+        margin-right: $spacingStandard
+
+      &:hover &__Icon
+        border-color: $colorDarkGray
+
+      &--selected &__Icon
+        border-color: $colorBlue !important
+        display: flex
+        justify-content: center
+        align-items: center
+
+        &:after
+          content: ''
+          background: url('/public/tick.png') no-repeat
+          background-size: contain
+          width: $spacingStandard
+          height: $spacingSmall
+
+      &__Name
+        position: relative
+        display: flex
+        align-items: center
+        margin-right: $spacingStandard
+
+      &--selected &__Name
+        &:after
+          content: ''
+          background: $colorGray
+          position: absolute
+          left: 0
+          right: 0
+          height: 1px
+
+      &__RemoveIcon
+        height: $spacingMedium
+        cursor: pointer
+        display: none
+
+      &:hover &__RemoveIcon
+        display: block
+
+    &__AddItem
+      display: flex
+      align-items: center
+
+      &__Icon
+        width: 10px
+        height: 10px
+        background: url('/public/plus.png') no-repeat
+        background-size: contain
+        margin-left: 11px
+        margin-right: 9px
+
+      &__Control
+        border-bottom-width: 1px
+        border-bottom-color: $colorLightGray
+        padding-left: $spacingSmall
+        min-width: 164px
+  

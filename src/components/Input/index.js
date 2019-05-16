@@ -6,14 +6,16 @@ import useValue from './useValue'
 
 import './styles.sass'
 
-function Input({ placeholder, onSubmit }) {
+function Input({ placeholder, onSubmit, className, size }) {
   const [value, handleChangeValue, hasError, handleSubmit] = useValue('', onSubmit)
 
   return (
     <div
       className={cx({
         viemed__Input: true,
+        [`viemed__Input--size-${size}`]: true,
         'viemed__Input--error': hasError,
+        [className]: className !== null,
       })}
     >
       <input
@@ -24,24 +26,25 @@ function Input({ placeholder, onSubmit }) {
         onChange={handleChangeValue}
       />
 
-      {onSubmit !== null && (
-        <div
-          className="viemed__Input__Button"
-          onClick={handleSubmit}
-        />
-      )}
+      <div
+        className="viemed__Input__Button"
+        onClick={handleSubmit}
+      />
     </div>
   )
 }
 
 Input.propTypes = {
   placeholder: PropTypes.string,
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'standard']),
 }
 
 Input.defaultProps = {
   placeholder: null,
-  onSubmit: null,
+  className: null,
+  size: 'standard',
 }
 
 export default React.memo(Input)
