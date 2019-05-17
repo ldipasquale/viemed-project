@@ -1,4 +1,8 @@
 # Viemed Healthcare - Test Project
+## Usage
+Run `yarn install` for install the dependencies and then, run `yarn dev` to execute the project.
+
+## Structure
 ### components
 The components directory has four components, where there is no logic from the project, only presentational components. Each component has an `index.js` file which exports the component to be used in a `page`, and a `styles.sass` file where the style is defined and it's being imported from the `index.js`. Each component is a memoized functional component or a PureComponent (if it has some internal logic). Their props is defined with the `PropTypes` library, in order to keep order in the code and have a signature for each component.
 
