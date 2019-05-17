@@ -1,6 +1,7 @@
 # Viemed Healthcare - Test Project
 ## Usage
 Run `yarn install` to install the dependencies and then, run `yarn dev` to execute the project.
+Be sure to create a `config/api.js` file based on the `config/api.js.default` template.
 
 ## Structure
 ### components
