@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useMutation } from 'react-apollo-hooks'
 
@@ -12,7 +12,7 @@ function SignIn({ onSubmit }) {
   const handleSignIn = useMutation(SIGN_IN)
 
   const handleSubmit = async (name) => {
-    const { data: { generateAccessToken: accessToken } } = await handleSignIn({ variables: {
+    const { data: { generateAccessToken: accessToken }} = await handleSignIn({ variables: {
       userName: name,
       apiKey: apiConfig.apiKey,
     }})
@@ -31,7 +31,7 @@ function SignIn({ onSubmit }) {
 
       <Input
         placeholder="Type your name here..."
-        onSubmit={handleSubmit}
+        onSubmit={useCallback(handleSubmit)}
         className="viemed__SignIn__NameInput"
       />
     </div>
