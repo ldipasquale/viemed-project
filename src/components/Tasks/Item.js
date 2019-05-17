@@ -13,9 +13,7 @@ class TasksItem extends React.PureComponent {
   handleUpdate() {
     const { id, isDone, onUpdate } = this.props
 
-    return onUpdate(id, {
-      isDone: !isDone,
-    })
+    return onUpdate(id, !isDone)
   }
 
   handleRemove(event) {

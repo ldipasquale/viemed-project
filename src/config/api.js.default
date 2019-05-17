@@ -1,0 +1,4 @@
+export default {
+  url: 'API_URL',
+  apiKey: 'API_KEY',
+}

@@ -76,6 +76,6 @@ describe('Tasks', () => {
     const [firstItem] = getAllByTestId(itemTestId)
     fireEvent.click(firstItem)
 
-    expect(onUpdateItem).toHaveBeenCalledWith(items[0].id, { isDone: !items[0].isDone })
+    expect(onUpdateItem).toHaveBeenCalledWith(items[0].id, !items[0].isDone)
   })
 })
